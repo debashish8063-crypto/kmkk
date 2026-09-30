@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Favorite Person</title>
+    <meta
+      name="description"
+      content="A sweet surprise page with a hidden passcode, story timeline, and heartfelt letter."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <main class="screen screen--passcode" id="passcodeScreen" aria-live="polite">
+        <div class="ambient ambient--one" aria-hidden="true"></div>
+        <div class="ambient ambient--two" aria-hidden="true"></div>
+        <div class="ambient ambient--three" aria-hidden="true"></div>
+
+        <div class="passcode-layout">
+          <div class="portrait-card" aria-label="Photo card">
+            <img
+              class="portrait-card__image"
+              src="pic1.jpeg"
+              alt="A smiling woman standing by the balcony with a scenic mountain view"
+            />
+            <div class="portrait-card__badge" aria-hidden="true">💌</div>
+          </div>
+
+          <section class="passcode-panel" aria-labelledby="unlock-heading">
+            <p class="eyebrow">A little secret</p>
+            <h1 id="unlock-heading">Open my surprise</h1>
+            <p class="passcode-panel__copy">
+              I made this for you with a little love, a few memories, and a whole lot of
+              gratitude for the way you brighten my world.
+            </p>
+
+            <div class="error-message" id="errorMessage" hidden>
+              <strong>That code is not quite right.</strong>
+              <span>Try again — I promise the reward is worth it.</span>
+            </div>
+
+            <div class="passcode-inputs" aria-label="Enter passcode">
+              <input class="passcode-box" type="password" inputmode="numeric" maxlength="1" aria-label="Digit 1" />
+              <input class="passcode-box" type="password" inputmode="numeric" maxlength="1" aria-label="Digit 2" />
+              <input class="passcode-box" type="password" inputmode="numeric" maxlength="1" aria-label="Digit 3" />
+              <input class="passcode-box" type="password" inputmode="numeric" maxlength="1" aria-label="Digit 4" />
+            </div>
+
+            <div class="keypad" aria-label="Number pad">
+              <button class="key-btn" type="button" data-value="1">1</button>
+              <button class="key-btn" type="button" data-value="2">2</button>
+              <button class="key-btn" type="button" data-value="3">3</button>
+              <button class="key-btn" type="button" data-value="4">4</button>
+              <button class="key-btn" type="button" data-value="5">5</button>
+              <button class="key-btn" type="button" data-value="6">6</button>
+              <button class="key-btn" type="button" data-value="7">7</button>
+              <button class="key-btn" type="button" data-value="8">8</button>
+              <button class="key-btn" type="button" data-value="9">9</button>
+              <button class="key-btn key-btn--soft" type="button" data-action="clear">Clear</button>
+              <button class="key-btn" type="button" data-value="0">0</button>
+              <button class="key-btn key-btn--soft" type="button" data-action="delete">⌫</button>
+            </div>
+
+            <button class="primary-button" type="button" id="unlockButton">Unlock</button>
+          </section>
+        </div>
+      </main>
+
+      <section class="screen screen--story" id="storyScreen" hidden>
+        <div class="story-wrap">
+          <header class="story-header">
+            <p class="eyebrow">Our little timeline</p>
+            <h2>For you.</h2>
+          </header>
+
+          <div class="slides" aria-live="polite">
+            <article class="slide is-active">
+              <img
+                class="slide__image"
+                src="pic%202.jpeg"
+                alt="A warm and joyful photo of two people together"
+              />
+              <div class="slide__body">
+                <p class="slide__kicker">Chapter One</p>
+                <h3>The day you changed everything</h3>
+                <p>
+                  We met at just the right moment, and everything about us felt like the start of
+                  something beautiful. A little laughter, a little spark, and suddenly life felt more
+                  colorful, softer, and brighter.
+                </p>
+              </div>
+            </article>
+
+            <article class="slide">
+              <img
+                class="slide__image"
+                src="pic%205.jpeg"
+                alt="A romantic walk during golden hour"
+              />
+              <div class="slide__body">
+                <p class="slide__kicker">Chapter Two</p>
+                <h3>How you make ordinary days feel magical</h3>
+                <p>
+                  The best part of us is not the grand moments alone, but the quiet ones: your voice,
+                  your smile, your calm presence. You turn even the simplest days into memories I want
+                  to hold onto forever.
+                </p>
+              </div>
+            </article>
+
+            <article class="slide">
+              <img
+                class="slide__image"
+                src="pic4.jpeg"
+                alt="A couple sharing a heartfelt joyful moment"
+              />
+              <div class="slide__body">
+                <p class="slide__kicker">Chapter Three</p>
+                <h3>My favorite person, always</h3>
+                <p>
+                  I hope you know how deeply you are loved. You are kind, beautiful, thoughtful, and
+                  the kind of person who makes life feel more gentle and more meaningful. Today and
+                  always, I am grateful for you.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="story-controls">
+            <button class="icon-button" id="prevSlide" type="button" aria-label="Previous slide">←</button>
+            <div class="slide-dots" aria-label="Slide navigation">
+              <button class="dot is-active" type="button" data-index="0" aria-label="Go to slide 1"></button>
+              <button class="dot" type="button" data-index="1" aria-label="Go to slide 2"></button>
+              <button class="dot" type="button" data-index="2" aria-label="Go to slide 3"></button>
+            </div>
+            <button class="icon-button" id="nextSlide" type="button" aria-label="Next slide">→</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen screen--birthday" id="birthdayScreen" hidden>
+        <div class="ambient ambient--one" aria-hidden="true"></div>
+        <div class="ambient ambient--two" aria-hidden="true"></div>
+        <div class="confetti confetti--one" aria-hidden="true"></div>
+        <div class="confetti confetti--two" aria-hidden="true"></div>
+        <div class="confetti confetti--three" aria-hidden="true"></div>
+        <div class="confetti confetti--four" aria-hidden="true"></div>
+
+        <div class="birthday-layout">
+          <div class="birthday-copy">
+            <p class="eyebrow">Happy birthday</p>
+            <h2>
+              <span>Today</span>
+              <span>is yours.</span>
+            </h2>
+            <p>
+              You deserve a day as warm and beautiful as your heart. May this year bring you peace,
+              laughter, healing, and the kind of love that keeps making your life brighter.
+            </p>
+            <button class="primary-button primary-button--wide" type="button" id="openLetter">Read the letter</button>
+          </div>
+
+          <div class="memory-frame">
+            <img
+              class="memory-frame__image"
+              src="pic3.jpeg"
+              alt="A lovely memory shared together"
+            />
+            <div class="memory-frame__label" aria-label="Favorite memory badge">
+              <span aria-hidden="true">✨</span>
+              <span>Favorite memory</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="letter-modal" id="letterModal" hidden>
+      <button class="letter-modal__close" type="button" aria-label="Close letter">×</button>
+
+      <article class="letter-card" aria-label="Letter">
+        <div class="letter-card__cover">
+          <img
+            src="pic1.jpeg"
+            alt="Decorative background for the letter cover"
+          />
+          <p>Dear love,</p>
+          <h2>For you.</h2>
+        </div>
+
+        <div class="letter-card__message">
+          <p class="eyebrow">A note from my heart</p>
+          <h3>My favorite person.</h3>
+          <p>
+            Happy birthday to someone who makes my life softer, brighter, and far more beautiful just
+            by being in it. You are the kind of person who turns ordinary moments into warm memories and
+            quiet worries into comfort.
+          </p>
+          <p>
+            I admire your heart, your strength, and the way you love with sincerity. You have a rare
+            kind of grace that makes people feel seen, safe, and deeply cared for. I hope you know how
+            much you mean to me and how lucky I feel to be part of your story.
+          </p>
+          <p>
+            May this year bring you the joy you have given me, the peace you deserve, and the love that
+            keeps finding you in every chapter of life. I will always choose you, celebrate you, and be
+            grateful for the beautiful soul that you are.
+          </p>
+          <p>
+            With all my love, always, and forever,<br />
+            Your person.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <script>
+      const correctCode = "0210";
+      const inputs = [...document.querySelectorAll('.passcode-box')];
+      const keypadButtons = [...document.querySelectorAll('[data-value]')];
+      const actionButtons = [...document.querySelectorAll('[data-action]')];
+      const unlockButton = document.getElementById('unlockButton');
+      const errorMessage = document.getElementById('errorMessage');
+      const passcodeScreen = document.getElementById('passcodeScreen');
+      const storyScreen = document.getElementById('storyScreen');
+      const birthdayScreen = document.getElementById('birthdayScreen');
+      const modal = document.getElementById('letterModal');
+      const closeModalButton = document.querySelector('.letter-modal__close');
+      const openLetterButton = document.getElementById('openLetter');
+
+      function focusNextInput(index) {
+        const nextIndex = Math.min(index + 1, inputs.length - 1);
+        inputs[nextIndex].focus();
+      }
+
+      function readCode() {
+        return inputs.map((input) => input.value).join('');
+      }
+
+      function clearError() {
+        errorMessage.hidden = true;
+        passcodeScreen.classList.remove('has-error');
+      }
+
+      function fillCode(value) {
+        const activeIndex = inputs.findIndex((input) => input.value === '' && !input.disabled);
+        if (activeIndex === -1) {
+          return;
+        }
+
+        inputs[activeIndex].value = value;
+        focusNextInput(activeIndex);
+      }
+
+      keypadButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          clearError();
+          fillCode(button.dataset.value);
+        });
+      });
+
+      actionButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const action = button.dataset.action;
+          const filledIndex = [...inputs].findLastIndex((input) => input.value !== '');
+
+          if (action === 'delete') {
+            if (filledIndex >= 0) {
+              inputs[filledIndex].value = '';
+              inputs[filledIndex].focus();
+            }
+            return;
+          }
+
+          if (action === 'clear') {
+            inputs.forEach((input) => {
+              input.value = '';
+            });
+            inputs[0].focus();
+          }
+        });
+      });
+
+      inputs.forEach((input, index) => {
+        input.addEventListener('input', () => {
+          input.value = input.value.replace(/\D/g, '').slice(0, 1);
+          if (input.value && index < inputs.length - 1) {
+            focusNextInput(index);
+          }
+          clearError();
+        });
+
+        input.addEventListener('keydown', (event) => {
+          if (event.key === 'Backspace' && !input.value && index > 0) {
+            inputs[index - 1].focus();
+            inputs[index - 1].value = '';
+          }
+        });
+      });
+
+      unlockButton.addEventListener('click', () => {
+        const entered = readCode();
+
+        if (entered === correctCode) {
+          passcodeScreen.hidden = true;
+          storyScreen.hidden = false;
+          birthdayScreen.hidden = true;
+          return;
+        }
+
+        passcodeScreen.classList.add('has-error');
+        errorMessage.hidden = false;
+        inputs.forEach((input) => {
+          input.value = '';
+        });
+        inputs[0].focus();
+      });
+
+      const slides = [...document.querySelectorAll('.slide')];
+      const dots = [...document.querySelectorAll('.dot')];
+      const prevSlideButton = document.getElementById('prevSlide');
+      const nextSlideButton = document.getElementById('nextSlide');
+      let currentSlide = 0;
+
+      function updateSlide(index) {
+        currentSlide = Math.max(0, Math.min(index, slides.length - 1));
+
+        slides.forEach((slide, slideIndex) => {
+          slide.classList.toggle('is-active', slideIndex === currentSlide);
+        });
+
+        dots.forEach((dot, dotIndex) => {
+          dot.classList.toggle('is-active', dotIndex === currentSlide);
+        });
+
+        prevSlideButton.disabled = currentSlide === 0;
+        nextSlideButton.textContent = currentSlide === slides.length - 1 ? '✓' : '→';
+      }
+
+      prevSlideButton.addEventListener('click', () => {
+        updateSlide(currentSlide - 1);
+      });
+
+      nextSlideButton.addEventListener('click', () => {
+        if (currentSlide === slides.length - 1) {
+          storyScreen.hidden = true;
+          birthdayScreen.hidden = false;
+          return;
+        }
+
+        updateSlide(currentSlide + 1);
+      });
+
+      dots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          updateSlide(Number(dot.dataset.index));
+        });
+      });
+
+      openLetterButton.addEventListener('click', () => {
+        modal.hidden = false;
+        document.body.classList.add('modal-open');
+      });
+
+      closeModalButton.addEventListener('click', () => {
+        modal.hidden = true;
+        document.body.classList.remove('modal-open');
+      });
+
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          modal.hidden = true;
+          document.body.classList.remove('modal-open');
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !modal.hidden) {
+          modal.hidden = true;
+          document.body.classList.remove('modal-open');
+        }
+      });
+
+      inputs[0].focus();
+      updateSlide(0);
+    </script>
+  </body>
+</html>
